@@ -25,12 +25,12 @@ func Register(myConfig *configs.Config, h *server.Hertz) {
 		// 可以添加更多请求方式
 		case GET:
 			for _, api := range route.Apis {
-				h.GET(api, proxyMap[route.ServiceName].ServeHTTP)
+				h.GET(api, proxyMap[route.ServiceName])
 			}
 
 		case POST:
 			for _, api := range route.Apis {
-				h.POST(api, proxyMap[route.ServiceName].ServeHTTP)
+				h.POST(api, proxyMap[route.ServiceName])
 			}
 		}
 	}
